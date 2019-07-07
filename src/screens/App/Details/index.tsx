@@ -7,25 +7,25 @@ import Layout from "../../../components/UI/Layout";
 /* Services */
 import NavigationService from "../../../services/NavigationService";
 
-const Home = () => {
+const Details = () => {
   return (
     <Layout>
-      <Text>Screen Home</Text>
+      <Text>Screen Details</Text>
 
       <Button
         style={{ alignSelf: "center" }}
-        onPress={() => NavigationService.navigate("Auth")}
+        onPress={() => NavigationService.navigate("AppHome")}
       >
-        <Text>Go to Login Screen</Text>
+        <Text>Go to Home Screen</Text>
       </Button>
     </Layout>
   );
 };
 
-Home.navigationOptions = {
+Details.navigationOptions = {
   tabBarIcon: ({ focused }: TabBarIconProps) => (
-    <Icon name="home" active={focused} />
+    <Icon type="FontAwesome5" name="info-circle" active={focused} />
   )
 };
 
-export default Home;
+export default Details;

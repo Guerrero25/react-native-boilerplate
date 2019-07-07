@@ -8,12 +8,12 @@ import {
 /* Screens */
 import ScreenAuthLoading from "./Auth/Loading";
 import ScreenAuthLogIn from "./Auth/LogIn";
-import ScreenAppHome from "./App/Home";
+import ScreenApp from "./App";
 
 /* Navigation Services to Navigation Actions */
 import NavigationService from "../services/NavigationService";
 
-const AppStack = createStackNavigator({ Home: ScreenAppHome });
+const AppStack = createStackNavigator({ Home: ScreenApp });
 const AuthStack = createStackNavigator({ SignIn: ScreenAuthLogIn });
 
 const NavigationContainer = createAppContainer(
