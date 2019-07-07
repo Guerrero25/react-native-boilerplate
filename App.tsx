@@ -1,29 +1,23 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React from "react";
-import { Component } from "react";
 
 /* Native Base Theme Config */
 import { StyleProvider } from "native-base";
 import getNativeBaseStyle from "./native-base-theme/components";
 import materialConfig from "./native-base-theme/variables/material";
 
+/* Redux configuration */
+import { Provider as StoreProvider } from "react-redux";
+import store from "./src/redux/store";
+
 /* Screens Config */
 import ScreenRoot from "./src/screens";
 
-type Props = {};
-export default class App extends Component<Props> {
-  render() {
-    return (
+export default function App() {
+  return (
+    <StoreProvider store={store}>
       <StyleProvider style={getNativeBaseStyle(materialConfig)}>
         <ScreenRoot />
       </StyleProvider>
-    );
-  }
+    </StoreProvider>
+  );
 }
