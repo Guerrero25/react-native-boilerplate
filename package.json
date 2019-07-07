@@ -30,6 +30,7 @@
     "metro-react-native-babel-preset": "0.54.1",
     "react-native-typescript-transformer": "^1.2.12",
     "react-test-renderer": "16.8.3",
+    "redux-persist": "^5.10.0",
     "typescript": "^3.5.2"
   },
   "jest": {
