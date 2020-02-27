@@ -1,9 +1,10 @@
 import * as React from "react";
 import { TabBarIconProps } from "react-navigation";
 /* Native Base Components */
-import { Text, Button, Icon } from "native-base";
+import { Text, TouchableOpacity } from "react-native";
 /* UI Components */
 import Layout from "../../../components/UI/Layout";
+import TabBarIcon from "../../../components/UI/TabBarIcon";
 /* Services */
 import NavigationService from "../../../services/NavigationService";
 
@@ -12,19 +13,19 @@ const Home = () => {
     <Layout>
       <Text>Screen Home</Text>
 
-      <Button
+      <TouchableOpacity
         style={{ alignSelf: "center" }}
         onPress={() => NavigationService.navigate("Auth")}
       >
         <Text>Go to Login Screen</Text>
-      </Button>
+      </TouchableOpacity>
     </Layout>
   );
 };
 
 Home.navigationOptions = {
-  tabBarIcon: ({ focused }: TabBarIconProps) => (
-    <Icon name="home" active={focused} />
+  tabBarIcon: (tabBarIconProps: TabBarIconProps) => (
+    <TabBarIcon name="home" {...tabBarIconProps} />
   )
 };
 

@@ -1,6 +1,6 @@
 import * as React from "react";
 /* Native Base Components */
-import { Text, Button } from "native-base";
+import { Text, TouchableOpacity } from "react-native";
 /* UI Components */
 import Layout from "../../../components/UI/Layout";
 /* Service */
@@ -13,12 +13,12 @@ const ScreenLogin: React.SFC<ScreenLoginProps> = () => {
     <Layout>
       <Text>Screen Login</Text>
 
-      <Button
+      <TouchableOpacity
         style={{ alignSelf: "center" }}
         onPress={() => NavigationService.navigate("App")}
       >
         <Text>Login</Text>
-      </Button>
+      </TouchableOpacity>
     </Layout>
   );
 };

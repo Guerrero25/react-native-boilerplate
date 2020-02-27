@@ -12,7 +12,8 @@ const ScreenAppNavigator = createBottomTabNavigator(
   {
     navigationOptions: { header: null },
     tabBarOptions: {
-      style: { paddingHorizontal: 7, paddingVertical: 7, height: 60 }
+      style: { paddingHorizontal: 7, paddingVertical: 14, height: 64 },
+      showLabel: false
     }
   }
 );

@@ -1,8 +1,6 @@
 import * as React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { ReactNode } from "react";
-/* Native Base Components */
-import { View } from "native-base";
 
 export interface LayoutProps {
   children: ReactNode;

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useEffect } from "react";
 /* Native Base Components */
-import { Text } from "native-base";
+import { Text } from "react-native";
 /* UI Components */
 import Layout from "../../../components/UI/Layout";
 /* Services */

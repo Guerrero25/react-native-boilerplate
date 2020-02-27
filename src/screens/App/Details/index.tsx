@@ -1,9 +1,10 @@
 import * as React from "react";
 import { TabBarIconProps } from "react-navigation";
-/* Native Base Components */
-import { Text, Button, Icon } from "native-base";
+/* Native Components */
+import { Text, TouchableOpacity } from "react-native";
 /* UI Components */
 import Layout from "../../../components/UI/Layout";
+import TabBarIcon from "../../../components/UI/TabBarIcon";
 /* Services */
 import NavigationService from "../../../services/NavigationService";
 
@@ -12,19 +13,19 @@ const Details = () => {
     <Layout>
       <Text>Screen Details</Text>
 
-      <Button
+      <TouchableOpacity
         style={{ alignSelf: "center" }}
         onPress={() => NavigationService.navigate("AppHome")}
       >
         <Text>Go to Home Screen</Text>
-      </Button>
+      </TouchableOpacity>
     </Layout>
   );
 };
 
 Details.navigationOptions = {
-  tabBarIcon: ({ focused }: TabBarIconProps) => (
-    <Icon type="FontAwesome5" name="info-circle" active={focused} />
+  tabBarIcon: (tabBarIconProps: TabBarIconProps) => (
+    <TabBarIcon name="info-circle" {...tabBarIconProps} />
   )
 };
 
