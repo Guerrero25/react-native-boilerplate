@@ -6,7 +6,7 @@ A basic boilerplate with the common configuration to build a robust application 
 
 - [React native v0.61.5](https://reactnative.dev/docs/tutorial)
 
-- [React Navigation v3.11.0](https://reactnavigation.org/docs/en/getting-started.html)
+- [React Navigation v5.0.8](https://reactnavigation.org/docs/en/getting-started.html)
 
 - [TypeScript](https://www.typescriptlang.org/docs/home.html)
 
