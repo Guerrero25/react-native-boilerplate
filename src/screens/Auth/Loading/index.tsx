@@ -1,18 +1,24 @@
 import * as React from "react";
 import { useEffect } from "react";
+/* Redux */
+import { useSelector } from "react-redux";
+import { RootReducer, UserReducer } from "../../../redux/reducers";
 /* Native Base Components */
 import { Text } from "react-native";
+/* Navigation */
+import { useNavigation } from "@react-navigation/native";
 /* UI Components */
 import Layout from "../../../components/UI/Layout";
-/* Services */
-import NavigationService from "../../../services/NavigationService";
 
 export interface ScreenLoadingProps {}
 
 const ScreenLoading: React.SFC<ScreenLoadingProps> = () => {
+  const navigation = useNavigation();
+  const user = useSelector<RootReducer, UserReducer>(state => state.user);
+
   useEffect(() => {
     setTimeout(() => {
-      NavigationService.navigate("App");
+      navigation.replace(user.authenticated ? "App" : "Auth", {});
     }, 1500);
   }, []);
 

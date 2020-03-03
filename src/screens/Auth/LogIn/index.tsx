@@ -3,19 +3,24 @@ import * as React from "react";
 import { Text, TouchableOpacity } from "react-native";
 /* UI Components */
 import Layout from "../../../components/UI/Layout";
-/* Service */
-import NavigationService from "../../../services/NavigationService";
+/* Redux */
+import { useActions } from "../../../hooks";
+import { login } from "../../../redux/actions/user";
 
 export interface ScreenLoginProps {}
 
 const ScreenLogin: React.SFC<ScreenLoginProps> = () => {
+  const loginAction = useActions(login);
+
   return (
     <Layout>
       <Text>Screen Login</Text>
 
       <TouchableOpacity
         style={{ alignSelf: "center" }}
-        onPress={() => NavigationService.navigate("App")}
+        onPress={() => {
+          loginAction({});
+        }}
       >
         <Text>Login</Text>
       </TouchableOpacity>

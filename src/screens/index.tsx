@@ -1,42 +1,39 @@
-import React, { Component } from "react";
-import {
-  createSwitchNavigator,
-  createStackNavigator,
-  createAppContainer
-} from "react-navigation";
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import { useSelector } from "react-redux";
 
 /* Screens */
 import ScreenAuthLoading from "./Auth/Loading";
 import ScreenAuthLogIn from "./Auth/LogIn";
 import ScreenApp from "./App";
 
-/* Navigation Services to Navigation Actions */
-import NavigationService from "../services/NavigationService";
+/* Types Redux */
+import { RootReducer, UserReducer } from "../redux/reducers";
 
-const AppStack = createStackNavigator({ Home: ScreenApp });
-const AuthStack = createStackNavigator({ SignIn: ScreenAuthLogIn });
+const StackNavigator = createStackNavigator();
 
-const NavigationContainer = createAppContainer(
-  createSwitchNavigator(
-    {
-      AuthLoading: ScreenAuthLoading,
-      App: AppStack,
-      Auth: AuthStack
-    },
-    {
-      initialRouteName: "AuthLoading"
-    }
-  )
-);
+function ScreenRoot() {
+  const user = useSelector<RootReducer, UserReducer>(state => state.user);
 
-class ScreenRoot extends Component {
-  render() {
-    return (
-      <NavigationContainer
-        ref={ref => NavigationService.setTopLevelNavigator(ref)}
-      />
-    );
-  }
+  return (
+    <NavigationContainer>
+      <StackNavigator.Navigator
+        initialRouteName="AuthLoading"
+        screenOptions={{ headerShown: false }}
+      >
+        <StackNavigator.Screen
+          name="AuthLoading"
+          component={ScreenAuthLoading}
+        />
+        {user.authenticated ? (
+          <StackNavigator.Screen name="App" component={ScreenApp} />
+        ) : (
+          <StackNavigator.Screen name="Auth" component={ScreenAuthLogIn} />
+        )}
+      </StackNavigator.Navigator>
+    </NavigationContainer>
+  );
 }
 
 export default ScreenRoot;

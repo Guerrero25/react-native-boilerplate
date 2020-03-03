@@ -1,6 +1,12 @@
 import { combineReducers } from "redux";
-import users from "./users";
+/* Reducers */
+import user from "./user";
 
-const rootReducer = combineReducers({ users });
+/* Exports reducer types */
+export { UserReducer } from "./user";
+
+const rootReducer = combineReducers({ user });
+
+export type RootReducer = ReturnType<typeof rootReducer>;
 
 export default rootReducer;

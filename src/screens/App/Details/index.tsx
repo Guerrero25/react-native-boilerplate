@@ -1,32 +1,26 @@
 import * as React from "react";
-import { TabBarIconProps } from "react-navigation";
 /* Native Components */
 import { Text, TouchableOpacity } from "react-native";
+/* Navigation */
+import { useNavigation } from "@react-navigation/native";
 /* UI Components */
 import Layout from "../../../components/UI/Layout";
-import TabBarIcon from "../../../components/UI/TabBarIcon";
-/* Services */
-import NavigationService from "../../../services/NavigationService";
 
 const Details = () => {
+  const navigation = useNavigation();
+
   return (
     <Layout>
       <Text>Screen Details</Text>
 
       <TouchableOpacity
         style={{ alignSelf: "center" }}
-        onPress={() => NavigationService.navigate("AppHome")}
+        onPress={() => navigation.navigate("AppHome")}
       >
         <Text>Go to Home Screen</Text>
       </TouchableOpacity>
     </Layout>
   );
-};
-
-Details.navigationOptions = {
-  tabBarIcon: (tabBarIconProps: TabBarIconProps) => (
-    <TabBarIcon name="info-circle" {...tabBarIconProps} />
-  )
 };
 
 export default Details;
