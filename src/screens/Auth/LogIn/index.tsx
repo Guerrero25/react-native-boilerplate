@@ -1,8 +1,9 @@
 import * as React from "react";
 /* Native Base Components */
-import { Text, TouchableOpacity } from "react-native";
 /* UI Components */
 import Layout from "../../../components/UI/Layout";
+import Button from "../../../components/UI/Button";
+import Text from "../../../components/UI/Text";
 /* Redux */
 import { useActions } from "../../../hooks";
 import { login } from "../../../redux/actions/user";
@@ -14,16 +15,25 @@ const ScreenLogin: React.SFC<ScreenLoginProps> = () => {
 
   return (
     <Layout>
-      <Text>Screen Login</Text>
-
-      <TouchableOpacity
-        style={{ alignSelf: "center" }}
+      <Button
+        block
+        style={{ marginBottom: 10, marginTop: 10 }}
         onPress={() => {
           loginAction({});
         }}
       >
-        <Text>Login</Text>
-      </TouchableOpacity>
+        Sing up
+      </Button>
+
+      <Button
+        ghost
+        block
+        onPress={() => {
+          loginAction({});
+        }}
+      >
+        Login
+      </Button>
     </Layout>
   );
 };

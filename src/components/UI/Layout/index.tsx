@@ -1,21 +1,19 @@
 import * as React from "react";
-import { StyleSheet, View } from "react-native";
-import { ReactNode } from "react";
+import styled from "styled-components/native";
 
 export interface LayoutProps {
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
-const Layout: React.SFC<LayoutProps> = ({ children }) => {
-  return <View style={styles.container}>{children}</View>;
-};
+const LayoutContainer = styled.View`
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+`;
+
+function Layout({ children }: LayoutProps) {
+  return <LayoutContainer>{children}</LayoutContainer>;
+}
 
 export default Layout;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
-  }
-});

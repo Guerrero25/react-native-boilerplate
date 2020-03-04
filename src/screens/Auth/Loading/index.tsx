@@ -17,9 +17,7 @@ const ScreenLoading: React.SFC<ScreenLoadingProps> = () => {
   const user = useSelector<RootReducer, UserReducer>(state => state.user);
 
   useEffect(() => {
-    setTimeout(() => {
-      navigation.replace(user.authenticated ? "App" : "Auth", {});
-    }, 1500);
+    navigation.replace(user.authenticated ? "App" : "Auth", {});
   }, []);
 
   return (

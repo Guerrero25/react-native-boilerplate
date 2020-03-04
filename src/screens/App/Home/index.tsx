@@ -1,8 +1,8 @@
 import * as React from "react";
-/* Native Base Components */
-import { Text, TouchableOpacity } from "react-native";
 /* UI Components */
 import Layout from "../../../components/UI/Layout";
+import Button from "../../../components/UI/Button";
+import Text from "../../../components/UI/Text";
 /* Redux */
 import { useActions } from "../../../hooks";
 import { logout } from "../../../redux/actions/user";
@@ -14,14 +14,13 @@ const Home = () => {
     <Layout>
       <Text>Screen Home</Text>
 
-      <TouchableOpacity
-        style={{ alignSelf: "center" }}
+      <Button
         onPress={() => {
           logoutAction();
         }}
       >
-        <Text>Go to Login Screen</Text>
-      </TouchableOpacity>
+        Go to Login Screen
+      </Button>
     </Layout>
   );
 };

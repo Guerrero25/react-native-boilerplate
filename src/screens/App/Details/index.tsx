@@ -1,10 +1,10 @@
 import * as React from "react";
-/* Native Components */
-import { Text, TouchableOpacity } from "react-native";
 /* Navigation */
 import { useNavigation } from "@react-navigation/native";
 /* UI Components */
 import Layout from "../../../components/UI/Layout";
+import Button from "../../../components/UI/Button";
+import Text from "../../../components/UI/Text";
 
 const Details = () => {
   const navigation = useNavigation();
@@ -13,12 +13,13 @@ const Details = () => {
     <Layout>
       <Text>Screen Details</Text>
 
-      <TouchableOpacity
+      <Button
+        ghost
         style={{ alignSelf: "center" }}
         onPress={() => navigation.navigate("AppHome")}
       >
-        <Text>Go to Home Screen</Text>
-      </TouchableOpacity>
+        Go to Home Screen
+      </Button>
     </Layout>
   );
 };
